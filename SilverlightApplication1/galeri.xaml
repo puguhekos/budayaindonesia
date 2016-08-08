@@ -1,0 +1,83 @@
+﻿<navigation:Page 
+           x:Class="SilverlightApplication1.galeri" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:pivot="clr-namespace:Microsoft.Internal.Pivot.Controls;assembly=System.Windows.Controls.Pivot"
+           xmlns:pv="clr-namespace:System.Windows.Controls.Pivot;assembly=System.Windows.Controls.Pivot"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="galeri Page">
+    <Grid x:Name="LayoutRoot">
+        <pv:PivotViewer Name="pivotGaleri">
+            <pv:PivotViewer.RenderTransform>
+                <CompositeTransform/>
+            </pv:PivotViewer.RenderTransform>
+            <pv:PivotViewer.ItemTemplates>
+                <pv:PivotViewerItemTemplate MaxWidth="300">
+                    <Border Width="300" Height="300" 
+                        Background="{Binding nama_budaya}">
+                        <Image Source="{Binding url}" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" />
+                    </Border>
+                </pv:PivotViewerItemTemplate>
+                <pv:PivotViewerItemTemplate>
+                    <Grid Width="800" Height="800" Background="LightGray">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"   />
+
+                        </Grid.RowDefinitions>
+
+                        <Image Source="{Binding url}" 
+                                Grid.Row="0"
+                            Width="800"
+                               Height="Auto"
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding nama_budaya}" FontSize="100"
+                            FontWeight="Bold"
+                            Grid.Row="1"
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding jenis_Budaya}"
+                            FontSize="40"
+                            Margin="0,0,0,30"
+                            Grid.Row="2"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Grid>
+                </pv:PivotViewerItemTemplate>
+            </pv:PivotViewer.ItemTemplates>
+            
+            <pv:PivotViewer.PivotProperties>
+                <pv:PivotViewerStringProperty 
+                        Id="nama_budaya"
+                        DisplayName="Nama Budaya"
+                        Options="CanFilter,CanSearchText" 
+                        Binding="{Binding nama_budaya}"/>
+                <pv:PivotViewerStringProperty
+                        Id="jenis_Budaya" 
+                        DisplayName="Jenis Budaya"
+                        Options="CanFilter" 
+                        Binding="{Binding jenis_Budaya}"/>
+                <pv:PivotViewerStringProperty
+                        Id="Provinsi" 
+                        DisplayName="Provinsi"
+                        Options="CanFilter" 
+                        Binding="{Binding provinsi}"/>
+                <pv:PivotViewerStringProperty
+                        Id="keterangan" 
+                        DisplayName="Keterangan"
+                        Options="CanFilter" 
+                        Binding="{Binding Ket_Budaya}"
+                        />
+            </pv:PivotViewer.PivotProperties>
+        </pv:PivotViewer>
+    </Grid>
+</navigation:Page>

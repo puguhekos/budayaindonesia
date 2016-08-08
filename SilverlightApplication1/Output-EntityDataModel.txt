@@ -1,0 +1,5 @@
+﻿Generated model file: Model.edmx.
+Loading metadata from the database took 00:00:03.4362396.
+Generating the model took 00:00:05.2201328.
+Successfully registered the build provider in the Web.Config file.
+Successfully registered the assembly 'System.Data.Entity.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089' in the Web.Config file.

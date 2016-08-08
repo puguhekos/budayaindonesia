@@ -1,0 +1,224 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Ensiklopedia Budaya Indonesia</title>
+    <link rel="Stylesheet" type="text/css" href="style/bootstrap.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+    <link rel="stylesheet" type="text/css" href="style/font-awesome.css" />
+    <link rel="Stylesheet" type="text/css" href="style/animasi.css" />
+    <link rel="shortcut icon" href="assets/images/ico.png" type="image/x-icon" />
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/wow.js"></script>
+    <script type="text/javascript" src="Silverlight.js"></script>
+    
+    <script type="text/javascript">
+        function onSilverlightError(sender, args) {
+            var appSource = "";
+            if (sender != null && sender != 0) {
+              appSource = sender.getHost().Source;
+            }
+            
+            var errorType = args.ErrorType;
+            var iErrorCode = args.ErrorCode;
+
+            if (errorType == "ImageError" || errorType == "MediaError") {
+              return;
+            }
+
+            var errMsg = "Unhandled Error in Silverlight Application " +  appSource + "\n" ;
+
+            errMsg += "Code: "+ iErrorCode + "    \n";
+            errMsg += "Category: " + errorType + "       \n";
+            errMsg += "Message: " + args.ErrorMessage + "     \n";
+
+            if (errorType == "ParserError") {
+                errMsg += "File: " + args.xamlFile + "     \n";
+                errMsg += "Line: " + args.lineNumber + "     \n";
+                errMsg += "Position: " + args.charPosition + "     \n";
+            }
+            else if (errorType == "RuntimeError") {           
+                if (args.lineNumber != 0) {
+                    errMsg += "Line: " + args.lineNumber + "     \n";
+                    errMsg += "Position: " +  args.charPosition + "     \n";
+                }
+                errMsg += "MethodName: " + args.methodName + "     \n";
+            }
+
+            throw new Error(errMsg);
+        }
+    </script>
+
+</head>
+<body>
+    <div id="top-info" class="container-fluid navbar-fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="col-md-6 pull-left">
+                        <a href="Default.aspx"><img src="assets/images/logo.png" alt=""/></a>
+                    </div>
+                    <div class="col-md-6 pull-right">
+                        <div class="float-right">
+                            <a href="Default.aspx"><i class="fa fa-home"></i> Depan</a> <span class="separator">|</span>
+                            <a href="Artikel.aspx"><i class="fa fa-newspaper-o"></i> Artikel</a> <span class="separator">|</span>
+                            <a href="Galeri.aspx"><i class="fa fa-file-image-o"></i> Galeri</a> <span class="separator">|</span>
+                            <a href="Login1.aspx"><i class="fa fa-lock"></i> Login</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="silverlightControlHost">
+        <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" style="width:100%;height:100%">
+		  <param name="source" value="ClientBin/SilverlightApplication1.xap"/>
+          <param name="InitParams" value="Page=Depan" />
+		  <param name="onError" value="onSilverlightError" />
+		  <param name="background" value="white" />
+		  <param name="minRuntimeVersion" value="5.0.61118.0" />
+		  <param name="autoUpgrade" value="true" />
+		  <a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=5.0.61118.0" style="text-decoration:none">
+ 			  <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>
+		  </a>
+	    </object>
+        <iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;"></iframe>
+    </div>
+
+    <div class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                        <div class="col-md-6">
+                            <h1 class="title">selamat datang</h1>
+                            <div class="line-divider"></div>
+                            <p class="">Selamat Datang di Ensiklopedia Budaya Indonesia.
+                                Ensiklopedia Budaya Indonesia ini memberikan informasi keberagaman kebudayaan Indonesia.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="priview">
+                                <div class="priview_demo">
+                                    <img alt="" src="assets/banner/siak.jpg"/>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+
+    <div id="background1" class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="col-md-4 icon">
+                        <a href="#"><i class="fa fa-facebook-square" style="color: #ffffff;font-size:10em;"></i></a>
+                    </div>
+                    <div class="col-md-4 icon">
+                         <a href="#"><i class="fa fa-twitter-square" style="color: #ffffff;font-size:10em;"></i></a>
+                    </div>
+                    <div class="col-md-4 icon">
+                         <a href="#"><i class="fa fa-instagram" style="color: #ffffff;font-size:10em;"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="article-background" class="container-fluid">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <h1 class="title animated zoomIn">Artikel</h1>
+                    <div class="line-divider"></div>
+                    <div class="col-md-4">
+                        <div class="article">
+							<div class="article_thumbnail">
+                                <asp:Image ID="Image1" ImageUrl="~/Default.aspx?ImageID={0}" runat="server" />
+							</div>
+							<div class="text-center">
+								<h4>
+                                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+								</h4>
+								<p>
+                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("Keterangan Budaya").ToString().Substring(0,Math.Min(500,Eval("Keterangan Budaya").ToString().Length)) %>'></asp:Label>
+								</p>
+								<a href="detail-artikel.aspx">
+                                    <button type="button" class="btn btn-primary">Baca Lebih Lengkap</button>
+								</a>
+							</div>
+						</div>
+                    </div>
+                    <div class="col-md-4">
+                        <%--<asp:content ContentPlaceHolderID="contentID" runat="server">
+                            <section>
+                                <div class="article">
+                                    <div class="article_thumbnail">
+                                        <a href="detail-artikel.aspx?id_budaya=<%: page.id_budaya %>">
+                                            <img src="interface/Budaya/<%:page.file_path %>" />
+                                        </a>
+                                    </div>
+                                    <div class="text-center">
+                                        <h4><%:page.nama_budaya %></h4>
+                                        <p><%:page.ket %></p>
+                                    </div>
+                                </div>
+                            </section>
+                        </asp:content>--%>
+                        <div class="article">
+							<div class="article_thumbnail">
+								<img alt="" src="assets/banner/bg1.jpg"/>
+							</div>
+							<div class="text-center">
+								<h4>Judul Artikel</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+								<a href="detail-artikel.aspx"><button type="button" class="btn btn-primary">Baca Lebih Lengkap</button></a>
+							</div>
+						</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="article">
+							<div class="article_thumbnail">
+								<img alt="" src="assets/banner/bg1.jpg"/>
+							</div>
+							<div class="text-center">
+								<h4>Judul Artikel</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+								<a href="detail-artikel.aspx"><button type="button" class="btn btn-primary">Baca Lebih Lengkap</button></a>
+							</div>
+						</div>
+                    </div>
+                    <a href="Artikel.aspx" class="a-box-orange wow zoomIn">
+                        <i class="glyphicon glyphicon-send"></i>
+                            <strong>Artikel Lainnya</strong>
+                    </a>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-copyright" class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center div960">
+                    Copyright &copy; 2016 | Ensiklopedia Budaya Indonesia. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

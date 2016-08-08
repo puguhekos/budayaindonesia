@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{24D52672-9285-4C29-81B5-E56E6EC3696F}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SilverlightApplication1</RootNamespace>
+    <AssemblyName>SilverlightApplication1</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>SilverlightApplication1.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>SilverlightApplication1.App</SilverlightAppEntry>
+    <TestPageFileName>SilverlightApplication1TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Effects, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Interactions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Prototyping.Runtime, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SharePoint.Client.Search.Silverlight, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SharePoint.Client.Silverlight, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SharePoint.Client.Silverlight.Runtime, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics.Shaders" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Data.Services.Client, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.DomainServices.Client, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.DomainServices.Client.Web, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.Extensions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.NetTcp, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.PollingDuplex, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.ServiceModel.Web.Extensions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.DataForm.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.DomainServices, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Navigation, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Pivot, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit.Internals, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Budaya.cs" />
+    <Compile Include="galeri.xaml.cs">
+      <DependentUpon>galeri.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ebi\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataTabel.xaml.cs">
+      <DependentUpon>DataTabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Gambar.xaml.cs">
+      <DependentUpon>Gambar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="galeri.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DataTabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Gambar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img_icon\logoweb.psd" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Service References\ebi\Service2.wsdl" />
+    <None Include="Service References\ebi\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ebi\Service21.wsdl" />
+    <None Include="Service References\ebi\Service21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ebi\Service22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ebi\Service23.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Resource Include="img_icon\pop-up1.png" />
+    <Resource Include="Peta\aceh1.png" />
+    <Resource Include="Peta\Bali1.png" />
+    <Resource Include="Peta\Banten1.png" />
+    <Resource Include="Peta\Bebel1.png" />
+    <Resource Include="Peta\Bengkulu1.png" />
+    <Resource Include="Peta\DKI1.png" />
+    <Resource Include="Peta\Gorontalo1.png" />
+    <Resource Include="Peta\Jabar1.png" />
+    <Resource Include="Peta\Jambi1.png" />
+    <Resource Include="Peta\Jateng1.png" />
+    <Resource Include="Peta\Jatim1.png" />
+    <Resource Include="Peta\Kalbar1.png" />
+    <Resource Include="Peta\Kalsel1.png" />
+    <Resource Include="Peta\Kalteng1.png" />
+    <Resource Include="Peta\Kaltim1.png" />
+    <Resource Include="Peta\Kalut1.png" />
+    <Resource Include="Peta\Kepri1.png" />
+    <Resource Include="Peta\Lampung1.png" />
+    <Resource Include="Peta\Maluku1.png" />
+    <Resource Include="Peta\Malut1.png" />
+    <Resource Include="Peta\NTB1.png" />
+    <Resource Include="Peta\NTT1.png" />
+    <Resource Include="Peta\Papua1.png" />
+    <Resource Include="Peta\PapuaBarat1.png" />
+    <Resource Include="Peta\Riau1.png" />
+    <Resource Include="Peta\Sulbar1.png" />
+    <Resource Include="Peta\Sulsel1.png" />
+    <Resource Include="Peta\Sulteng1.png" />
+    <Resource Include="Peta\Sultra1.png" />
+    <Resource Include="Peta\Sulut1.png" />
+    <Resource Include="Peta\Sumbar1.png" />
+    <Resource Include="Peta\Sumsel1.png" />
+    <Resource Include="Peta\Sumut1.png" />
+    <Resource Include="Peta\Yogyakarta1.png" />
+    <None Include="Service References\ebi\Service2.disco" />
+    <None Include="Service References\ebi\configuration91.svcinfo" />
+    <None Include="Service References\ebi\configuration.svcinfo" />
+    <None Include="Service References\ebi\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\44.png" />
+    <Resource Include="images\53.png" />
+    <Resource Include="images\Aceh.png" />
+    <Resource Include="images\admin.png" />
+    <Resource Include="images\Babel.png" />
+    <Resource Include="images\background.jpg" />
+    <Resource Include="images\Bali.png" />
+    <Resource Include="images\Banten.png" />
+    <Resource Include="images\Bengkulu.png" />
+    <Resource Include="images\bg.jpg" />
+    <Resource Include="images\bg2.jpg" />
+    <Resource Include="images\bg3.jpg" />
+    <Resource Include="images\bg3.png" />
+    <Resource Include="images\bg4.png" />
+    <Resource Include="images\bg5.png" />
+    <Resource Include="images\body1.jpg" />
+    <Resource Include="images\Bungong Jeumpa Aceh.png" />
+    <Resource Include="images\Cagar-Budaya.png" />
+    <Resource Include="images\daftar.png" />
+    <Resource Include="images\daftar1.png" />
+    <Resource Include="images\Desktop.png" />
+    <Resource Include="images\folder.png" />
+    <Resource Include="images\folderOpen.png" />
+    <Resource Include="images\Galery.png" />
+    <Resource Include="images\Gorontalo.jpg" />
+    <Resource Include="images\Home-64.png" />
+    <Resource Include="images\Info-64.png" />
+    <Resource Include="images\info.png" />
+    <Resource Include="images\infobudaya.png" />
+    <Resource Include="images\infomember.png" />
+    <Resource Include="images\infoprovinsi.png" />
+    <Resource Include="images\jabar.png" />
+    <Resource Include="images\Jakarta.png" />
+    <Resource Include="images\jambi.png" />
+    <Resource Include="images\Jaten.png" />
+    <Resource Include="images\Jatim.png" />
+    <Resource Include="images\Kalbar.png" />
+    <Resource Include="images\kalsel.jpg" />
+    <Resource Include="images\kalteng.jpg" />
+    <Resource Include="images\kaltim.png" />
+    <Resource Include="images\Kalut.png" />
+    <Resource Include="images\keluar.png" />
+    <Resource Include="images\Kepri.png" />
+    <Resource Include="images\Lampung.png" />
+    <Resource Include="images\login.png" />
+    <Resource Include="images\login1.png" />
+    <Resource Include="images\login2.png" />
+    <Resource Include="images\Maluku.png" />
+    <Resource Include="images\MalukuUtara.png" />
+    <Resource Include="images\masuk.png" />
+    <Resource Include="images\masuk1.png" />
+    <Resource Include="images\masuk2.png" />
+    <Resource Include="images\News-64.png" />
+    <Resource Include="images\NTB.png" />
+    <Resource Include="images\NTT.png" />
+    <Resource Include="images\Papua.png" />
+    <Resource Include="images\PapuaBarat.png" />
+    <Resource Include="images\Picture-64.png" />
+    <Resource Include="images\Riau.png" />
+    <Resource Include="images\Sulbar.png" />
+    <Resource Include="images\sulsel.png" />
+    <Resource Include="images\Sulteng.png" />
+    <Resource Include="images\sultra.png" />
+    <Resource Include="images\Sulut.png" />
+    <Resource Include="images\Sumbar.png" />
+    <Resource Include="images\Sumsel.png" />
+    <Resource Include="images\Sumut.png" />
+    <Resource Include="images\Yogyakarta.png" />
+    <Resource Include="img_icon\16.png" />
+    <Resource Include="img_icon\Alat.png" />
+    <Resource Include="img_icon\Cerita.png" />
+    <Resource Include="img_icon\Icon_Musik.png" />
+    <Resource Include="img_icon\Icon_Musik1.png" />
+    <Resource Include="img_icon\Icon_Musik2.png" />
+    <Resource Include="img_icon\IMG_MAP.png" />
+    <Resource Include="img_icon\IMG_MAP1.png" />
+    <Resource Include="img_icon\IMG_MAP2.png" />
+    <Resource Include="img_icon\logoweb.png" />
+    <Resource Include="img_icon\logoweb1.png" />
+    <Resource Include="img_icon\logoweb3.png" />
+    <Resource Include="img_icon\makanan.png" />
+    <Resource Include="img_icon\Musik.png" />
+    <Resource Include="img_icon\pakaian.png" />
+    <Resource Include="img_icon\permainan.png" />
+    <Resource Include="img_icon\ritual.png" />
+    <Resource Include="img_icon\Rumah.png" />
+    <Resource Include="img_icon\Senjata.png" />
+    <Resource Include="img_icon\Tarian.png" />
+    <Resource Include="Peta\aceh.jpg" />
+    <Resource Include="Peta\aceh.png" />
+    <Resource Include="Peta\Bali.jpg" />
+    <Resource Include="Peta\Bali.png" />
+    <Resource Include="Peta\Banten.jpg" />
+    <Resource Include="Peta\Banten.png" />
+    <Resource Include="Peta\Bebel.jpg" />
+    <Resource Include="Peta\Bebel.png" />
+    <Resource Include="Peta\Bengkulu.jpg" />
+    <Resource Include="Peta\Bengkulu.png" />
+    <Resource Include="Peta\DKI.jpg" />
+    <Resource Include="Peta\DKI.png" />
+    <Resource Include="Peta\Gorontalo.jpg" />
+    <Resource Include="Peta\Gorontalo.png" />
+    <Resource Include="Peta\Jabar.jpg" />
+    <Resource Include="Peta\Jabar.png" />
+    <Resource Include="Peta\Jambi.jpg" />
+    <Resource Include="Peta\Jambi.png" />
+    <Resource Include="Peta\Jateng.jpg" />
+    <Resource Include="Peta\Jateng.png" />
+    <Resource Include="Peta\Jatim.jpg" />
+    <Resource Include="Peta\Jatim.png" />
+    <Resource Include="Peta\Kalbar.jpg" />
+    <Resource Include="Peta\Kalbar.png" />
+    <Resource Include="Peta\Kalsel.jpg" />
+    <Resource Include="Peta\Kalsel.png" />
+    <Resource Include="Peta\Kalteng.jpg" />
+    <Resource Include="Peta\Kalteng.png" />
+    <Resource Include="Peta\Kaltim.jpg" />
+    <Resource Include="Peta\Kaltim.png" />
+    <Resource Include="Peta\Kalut.jpg" />
+    <Resource Include="Peta\Kalut.png" />
+    <Resource Include="Peta\Kepri.jpg" />
+    <Resource Include="Peta\Kepri.png" />
+    <Resource Include="Peta\Lampung.jpg" />
+    <Resource Include="Peta\Lampung.png" />
+    <Resource Include="Peta\Maluku.jpg" />
+    <Resource Include="Peta\Maluku.png" />
+    <Resource Include="Peta\Malut.jpg" />
+    <Resource Include="Peta\Malut.png" />
+    <Resource Include="Peta\NTB.jpg" />
+    <Resource Include="Peta\NTB.png" />
+    <Resource Include="Peta\NTT.jpg" />
+    <Resource Include="Peta\NTT.png" />
+    <Resource Include="Peta\Papua.jpg" />
+    <Resource Include="Peta\Papua.png" />
+    <Resource Include="Peta\PapuaBarat.jpg" />
+    <Resource Include="Peta\PapuaBarat.png" />
+    <Resource Include="Peta\Riau.jpg" />
+    <Resource Include="Peta\Riau.png" />
+    <Resource Include="Peta\Sulbar.jpg" />
+    <Resource Include="Peta\Sulbar.png" />
+    <Resource Include="Peta\Sulsel.jpg" />
+    <Resource Include="Peta\Sulsel.png" />
+    <Resource Include="Peta\Sulteng.jpg" />
+    <Resource Include="Peta\Sulteng.png" />
+    <Resource Include="Peta\Sultra.jpg" />
+    <Resource Include="Peta\Sultra.png" />
+    <Resource Include="Peta\Sulut.jpg" />
+    <Resource Include="Peta\Sulut.png" />
+    <Resource Include="Peta\sumbar.jpg" />
+    <Resource Include="Peta\Sumbar.png" />
+    <Resource Include="Peta\Sumsel.jpg" />
+    <Resource Include="Peta\Sumsel.png" />
+    <Resource Include="Peta\Sumut.png" />
+    <Resource Include="Peta\Yogyakarta.jpg" />
+    <Resource Include="Peta\Yogyakarta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\background1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bg5a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bg5c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ebi\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

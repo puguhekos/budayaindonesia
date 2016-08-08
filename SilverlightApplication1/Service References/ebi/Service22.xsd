@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:40977/Service2.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Linq" />
+  <xs:complexType name="ArrayOfBudaya1">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Budaya1" nillable="true" type="tns:Budaya1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBudaya1" nillable="true" type="tns:ArrayOfBudaya1" />
+  <xs:complexType name="Budaya1">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Gambar_Budaya" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID_Budaya" type="xs:int" />
+      <xs:element minOccurs="0" name="Jenis_Budaya" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ket_Budaya" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nama_Budaya" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Provinsi" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Budaya1" nillable="true" type="tns:Budaya1" />
+  <xs:complexType name="ArrayOfAnggota">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Anggota" nillable="true" type="tns:Anggota" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnggota" nillable="true" type="tns:ArrayOfAnggota" />
+  <xs:complexType name="Anggota">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alamat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Foto_Profil" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDAnggota" type="xs:int" />
+      <xs:element minOccurs="0" name="Jenis_Kelamin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nama_User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tempat_Lahir" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tgl_Lahir" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User_Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Anggota" nillable="true" type="tns:Anggota" />
+  <xs:complexType name="ArrayOfGaleri">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Galeri" nillable="true" type="tns:Galeri" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGaleri" nillable="true" type="tns:ArrayOfGaleri" />
+  <xs:complexType name="Galeri">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Linq" minOccurs="0" name="Gambar" nillable="true" type="q1:Binary" />
+      <xs:element minOccurs="0" name="ID_Gambar" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Linq" minOccurs="0" name="Judul_Gambar" nillable="true" type="q2:Binary" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Linq" minOccurs="0" name="Ket_Gambar" nillable="true" type="q3:Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Galeri" nillable="true" type="tns:Galeri" />
+  <xs:complexType name="ArrayOfProvinsi1">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Provinsi1" nillable="true" type="tns:Provinsi1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProvinsi1" nillable="true" type="tns:ArrayOfProvinsi1" />
+  <xs:complexType name="Provinsi1">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Arti_Logo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID_Prov" type="xs:int" />
+      <xs:element minOccurs="0" name="Ibu_Kota_Prov" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ket_Prov" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Logo_Prov" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Luas_Prov" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nama_Prov" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Provinsi1" nillable="true" type="tns:Provinsi1" />
+</xs:schema>

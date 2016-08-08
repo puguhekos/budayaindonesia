@@ -1,0 +1,74 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.ComponentModel;
+using System.IO;
+
+public partial class Admin_DataBudaya : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        //this.BindGrrid();
+        DataTable dt = new DataTable();
+        string constr = "Data Source=espuguh-pc\\sqlexpress;Initial Catalog=PES17;Integrated Security=True;";
+        string strQuery = "select id_budaya, nama_budaya, provinsi, jenis_budaya, ket, ket_img, sumber, file_path from budaya1 order by id_budaya";
+        SqlCommand cmd = new SqlCommand(strQuery);
+        SqlConnection con = new SqlConnection(constr);
+        SqlDataAdapter sda = new SqlDataAdapter();
+        cmd.CommandType = CommandType.Text;
+        cmd.Connection = con;
+        try
+        {
+            con.Open();
+            sda.SelectCommand = cmd;
+            sda.Fill(dt);
+            GridBudaya.DataSource = dt;
+            GridBudaya.DataBind();
+        }
+        catch (Exception ex)
+        {
+            Response.Write(ex.Message);
+        }
+        finally
+        {
+            con.Close();
+            sda.Dispose();
+            con.Dispose();
+            dt.Dispose();
+        }
+    }
+
+    //private void BindGrrid()
+    //{
+    //    string constr = "Data Source=espuguh-pc\\sqlexpress;Initial Catalog=PES17;Integrated Security=True;";
+    //    using (SqlConnection con = new SqlConnection(constr))
+    //    {
+    //        using (SqlCommand cmd = new SqlCommand("select nama_budaya, provinsi, jenis_budaya, ket, ket_img, sumber from budaya"))
+    //        {
+    //            using (SqlDataAdapter sda = new SqlDataAdapter())
+    //            {
+    //                cmd.Connection = con;
+    //                sda.SelectCommand = cmd;
+    //                using (DataTable dt = new DataTable())
+    //                {
+    //                    sda.Fill(dt);
+    //                    GridBudaya.DataSource = dt;
+    //                    GridBudaya.DataBind();
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
+
+    protected void GridBudaya_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GridBudaya.PageIndex = e.NewPageIndex;
+        GridBudaya.DataBind();
+    }
+}

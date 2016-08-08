@@ -1,0 +1,92 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Default.master.cs" Inherits="_Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Ensiklopedia Budaya Indonesia</title>
+    <link rel="Stylesheet" type="text/css" href="style/bootstrap.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+    <link rel="stylesheet" type="text/css" href="style/font-awesome.css" />
+    <link rel="Stylesheet" type="text/css" href="style/animasi.css" />
+    <link rel="shortcut icon" href="assets/images/ico.png" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="style/jquery.fancybox.css" />
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/wow.js"></script>
+    <script type="text/javascript" src="Silverlight.js"></script>
+    <script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5795e032ee4b8bf8"></script>
+
+     
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div id="top-info" class="container-fluid navbar-fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="col-md-6 pull-left">
+                        <a href="Home.aspx"><img src="assets/images/logo.png" alt=""/></a>
+                    </div>
+                    <div class="col-md-6 pull-right">
+                        <div class="float-right">
+                            <a href="Home.aspx"><i class="fa fa-home"></i> Depan</a> <span class="separator">|</span>
+                            <a href="artikel_data.aspx"><i class="fa fa-newspaper-o"></i> Artikel</a> <span class="separator">|</span>
+                            <a href="foto.aspx"><i class="fa fa-file-image-o"></i> Galeri</a>
+                            <%--<a href="Login1.aspx"><i class="fa fa-lock"></i> Login</a>--%>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="silverlightControlHost">
+        <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" style="width:100%;height:100%">
+		  <param name="source" value="ClientBin/SilverlightApplication1.xap"/>
+          <param name="InitParams" value="Page=Depan" />
+		  <param name="onError" value="onSilverlightError" />
+		  <param name="background" value="white" />
+		  <param name="minRuntimeVersion" value="5.0.61118.0" />
+		  <param name="autoUpgrade" value="true" />
+		  <a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=5.0.61118.0" style="text-decoration:none">
+ 			  <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>
+		  </a>
+	    </object>
+        <iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;"></iframe>
+    </div>
+
+    <form id="form1" runat="server">
+    <div class="bg-place-content">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+
+    <div id="footer-copyright" class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center div960">
+                    Copyright &copy; 2016 | Ensiklopedia Budaya Indonesia. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.fancybox').fancybox();
+    });
+</script>
+</body>
+</html>

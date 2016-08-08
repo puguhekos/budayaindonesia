@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.ComponentModel;
+using System.IO;
+
+public partial class _Default : System.Web.UI.Page
+{
+    string constr = "Data Source=espuguh-pc\\sqlexpress;Initial Catalog=PES17;Integrated Security=True;";
+    
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        SqlConnection con = new SqlConnection(constr);
+        con.Open();
+        SqlCommand cmd = new SqlCommand("select * from budaya", con);
+        SqlDataReader dr = cmd.ExecuteReader();
+        if (dr.Read())
+        {
+            Label1.Text = dr["nama_budaya"].ToString();
+            Label2.Text = dr["ket"].ToString();
+            
+        }
+
+        con.Close();
+        //if (Request.QueryString["ImageID"] != null)
+        //{
+        //    //string constr = "Data Source=espuguh-pc\\sqlexpress;Initial Catalog=PES17;Integrated Security=True;";
+        //    string query = "Select id_budaya, nama_budaya, ket, image, file_path from budaya where id_budaya=@id_budaya)";
+        //    SqlCommand cmd = new SqlCommand(query);
+        //    cmd.Parameters.Add("@image", SqlDbType.Int).Value = Convert.ToInt32(Request.QueryString["ImageID"]);
+        //    DataTable dt = GetData(cmd);
+        //    if (dt != null)
+        //    {
+        //        Byte[] bytes = (Byte[])dt.Rows[0]["image"];
+        //        Response.Buffer = true;
+        //        Response.Charset = "";
+        //        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        //        Response.ContentType = dt.Rows[0]["ket"].ToString();
+        //        Response.BinaryWrite(bytes);
+        //        Response.Flush();
+        //        Response.End();
+
+        //        Label1.Text = "@nama_budaya";
+        //        Label2.Text = "@ket";
+        //    }
+        //}
+    }
+
+
+
+    private DataTable GetData(SqlCommand cmd)
+    {
+        throw new NotImplementedException();
+    }
+}

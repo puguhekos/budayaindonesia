@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 12.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="12.0">
+ <Targets>
+  <Target Name="C:\Users\ESPUGUH\AppData\Local\Temp\tmpF635.tmp.cadir\bin\App_Web_0bqgvlg0.dll">
+   <Modules>
+    <Module Name="app_web_0bqgvlg0.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Admin_DataBudaya" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Page_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-07-22 15:45:26Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="d:\KULIAH\TA\EBIPESCOM\EBIPESCOM.Web\Admin" File="DataBudaya.aspx.cs" Line="42">Object 'con' can be disposed more than once in method 'Admin_DataBudaya.Page_Load(object, EventArgs)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 42</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Admin_DataProvinsi" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Page_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-07-22 15:45:26Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="d:\KULIAH\TA\EBIPESCOM\EBIPESCOM.Web\Admin" File="DataProvinsi.aspx.cs" Line="44">Object 'con' can be disposed more than once in method 'Admin_DataProvinsi.Page_Load(object, EventArgs)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 44</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Admin_TabelBudaya" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#InsertUpdateData(System.Data.SqlClient.SqlCommand)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-07-22 15:45:26Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="d:\KULIAH\TA\EBIPESCOM\EBIPESCOM.Web\Admin" File="TabelBudaya.aspx.cs" Line="69">Object 'con' can be disposed more than once in method 'Admin_TabelBudaya.InsertUpdateData(SqlCommand)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 69</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Page_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-07-22 15:45:26Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="d:\KULIAH\TA\EBIPESCOM\EBIPESCOM.Web\Admin" File="TabelBudaya.aspx.cs" Line="40">Object 'con' can be disposed more than once in method 'Admin_TabelBudaya.Page_Load(object, EventArgs)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 40</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Admin_TabelProvinsi" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#InsertUpdateData(System.Data.SqlClient.SqlCommand)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-07-22 15:45:26Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="d:\KULIAH\TA\EBIPESCOM\EBIPESCOM.Web\Admin" File="TabelProvinsi.aspx.cs" Line="89">Object 'con' can be disposed more than once in method 'Admin_TabelProvinsi.InsertUpdateData(SqlCommand)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 89</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\ESPUGUH\AppData\Local\Temp\tmpF635.tmp.cadir\bin\App_Web_nkv2214x.dll">
+   <Modules>
+    <Module Name="app_web_nkv2214x.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Login1" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#submit_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-07-22 15:45:26Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="d:\KULIAH\TA\EBIPESCOM\EBIPESCOM.Web" File="Login1.aspx.cs" Line="24">The query string passed to 'SqlCommand.SqlCommand(string, SqlConnection)' in 'Login1.submit_Click(object, EventArgs)' could contain the following variables 'this.nama.Text', 'this.password.Text'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\ESPUGUH\AppData\Local\Temp\tmpF635.tmp.cadir\bin\App_Web_oabhlaap.dll">
+   <Modules>
+    <Module Name="app_web_oabhlaap.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Detail" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#BindDetailData()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-07-22 15:45:26Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="d:\KULIAH\TA\EBIPESCOM\EBIPESCOM.Web" File="Detail.aspx.cs" Line="27">The query string passed to 'SqlDataAdapter.SqlDataAdapter(string, string)' in 'Detail.BindDetailData()' could contain the following variables 'this.Request.QueryString["id_budaya"]'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\ESPUGUH\AppData\Local\Temp\tmpF635.tmp.cadir\bin\App_Web_tk5xxfml.dll">
+   <Modules>
+    <Module Name="app_web_tk5xxfml.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Registrasi" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#daftar_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-07-22 15:45:26Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="d:\KULIAH\TA\EBIPESCOM\EBIPESCOM.Web" File="Registrasi.aspx.cs" Line="23">The query string passed to 'SqlCommand.SqlCommand(string, SqlConnection)' in 'Registrasi.daftar_Click(object, EventArgs)' could contain the following variables 'this.nama.Text', 'this.password.Text', 'this.email.Text', 'this.jk.Text'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202">
+   <Name>Do not dispose objects multiple times</Name>
+   <Description>A correctly implemented Dispose method can be called multiple times without throwing an exception. However, this is not guaranteed and to avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.</Description>
+   <Resolution Name="Default">Object {0} can be disposed more than once in method {1}. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 89</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182334.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="12.0.0.0" />
+  </Rule>
+  <Rule TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100">
+   <Name>Review SQL queries for security vulnerabilities</Name>
+   <Description>A SQL command string built from user input is vulnerable to SQL injection attacks. Microsoft SQL Server and other database servers support stored procedures and parameterized SQL queries, which reduce the risk of injection attacks.</Description>
+   <Resolution Name="WithNonLiterals">The query string passed to {0} in {1} could contain the following variables {2}. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182310.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="12.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

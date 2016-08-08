@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PES17Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin1">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="adminid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="anggota">
+          <Key>
+            <PropertyRef Name="nama_anggota" />
+          </Key>
+          <Property Name="id_anggota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nama_anggota" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="30" />
+          <Property Name="email" Type="varchar" MaxLength="30" />
+          <Property Name="jenis_kelamin" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="budaya1">
+          <Key>
+            <PropertyRef Name="id_budaya" />
+          </Key>
+          <Property Name="id_budaya" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nama_budaya" Type="varchar" MaxLength="50" />
+          <Property Name="provinsi" Type="varchar" MaxLength="50" />
+          <Property Name="jenis_budaya" Type="varchar" MaxLength="50" />
+          <Property Name="ket" Type="text" />
+          <Property Name="ket_img" Type="text" />
+          <Property Name="sumber" Type="text" />
+          <Property Name="image" Type="image" />
+          <Property Name="file_path" Type="varchar" MaxLength="50" />
+          <Property Name="id_prov" Type="int" />
+          <Property Name="id_jenis" Type="int" />
+        </EntityType>
+        <EntityType Name="provinsi">
+          <Key>
+            <PropertyRef Name="id_prov" />
+          </Key>
+          <Property Name="id_prov" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nama_prov" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ibukota_prov" Type="varchar" MaxLength="50" />
+          <Property Name="logo_prov" Type="image" />
+          <Property Name="ket" Type="text" />
+          <Property Name="file_path" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Table_Jenis_Budaya">
+          <Key>
+            <PropertyRef Name="id_jenis_budaya" />
+          </Key>
+          <Property Name="id_jenis_budaya" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nama_jenis_budaya" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_id_jenis">
+          <End Role="Table_Jenis_Budaya" Type="Self.Table_Jenis_Budaya" Multiplicity="0..1" />
+          <End Role="budaya1" Type="Self.budaya1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Jenis_Budaya">
+              <PropertyRef Name="id_jenis_budaya" />
+            </Principal>
+            <Dependent Role="budaya1">
+              <PropertyRef Name="id_jenis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_id_prov">
+          <End Role="provinsi" Type="Self.provinsi" Multiplicity="0..1" />
+          <End Role="budaya1" Type="Self.budaya1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="provinsi">
+              <PropertyRef Name="id_prov" />
+            </Principal>
+            <Dependent Role="budaya1">
+              <PropertyRef Name="id_prov" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PES17ModelStoreContainer">
+          <EntitySet Name="admin1" EntityType="Self.admin1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="anggota" EntityType="Self.anggota" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="budaya1" EntityType="Self.budaya1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="provinsi" EntityType="Self.provinsi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Jenis_Budaya" EntityType="Self.Table_Jenis_Budaya" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_id_jenis" Association="Self.FK_id_jenis">
+            <End Role="Table_Jenis_Budaya" EntitySet="Table_Jenis_Budaya" />
+            <End Role="budaya1" EntitySet="budaya1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_id_prov" Association="Self.FK_id_prov">
+            <End Role="provinsi" EntitySet="provinsi" />
+            <End Role="budaya1" EntitySet="budaya1" />
+          </AssociationSet>
+          </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PES17Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin1">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="adminid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="anggota">
+          <Key>
+            <PropertyRef Name="nama_anggota" />
+          </Key>
+          <Property Name="id_anggota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama_anggota" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="jenis_kelamin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="provinsi">
+          <Key>
+            <PropertyRef Name="id_prov" />
+          </Key>
+          <Property Name="id_prov" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama_prov" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ibukota_prov" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="logo_prov" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ket" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="file_path" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="budaya1" Relationship="PES17Model.FK_id_prov" FromRole="provinsi" ToRole="budaya1" />
+        </EntityType>
+        <EntityContainer Name="PES17Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admin1" EntityType="Self.admin1" />
+          <EntitySet Name="anggota" EntityType="Self.anggota" />
+          <EntitySet Name="provinsi" EntityType="Self.provinsi" />
+          <EntitySet Name="sysdiagrams" EntityType="PES17Model.sysdiagrams" />
+          <EntitySet Name="Table_Jenis_Budaya" EntityType="PES17Model.Table_Jenis_Budaya" />
+          <EntitySet Name="budaya1" EntityType="PES17Model.budaya1" />
+          <AssociationSet Name="FK_id_jenis" Association="PES17Model.FK_id_jenis">
+            <End Role="Table_Jenis_Budaya" EntitySet="Table_Jenis_Budaya" />
+            <End Role="budaya1" EntitySet="budaya1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_id_prov" Association="PES17Model.FK_id_prov">
+            <End Role="provinsi" EntitySet="provinsi" />
+            <End Role="budaya1" EntitySet="budaya1" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Table_Jenis_Budaya">
+          <Key>
+            <PropertyRef Name="id_jenis_budaya" />
+          </Key>
+          <Property Name="id_jenis_budaya" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama_jenis_budaya" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="budaya1" Relationship="PES17Model.FK_id_jenis" FromRole="Table_Jenis_Budaya" ToRole="budaya1" />
+        </EntityType>
+        <EntityType Name="budaya1">
+          <Key>
+            <PropertyRef Name="id_budaya" />
+          </Key>
+          <Property Name="id_budaya" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama_budaya" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="provinsi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jenis_budaya" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ket" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ket_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="file_path" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_prov" Type="Int32" />
+          <Property Name="id_jenis" Type="Int32" />
+          <NavigationProperty Name="Table_Jenis_Budaya" Relationship="PES17Model.FK_id_jenis" FromRole="budaya1" ToRole="Table_Jenis_Budaya" />
+          <NavigationProperty Name="provinsi1" Relationship="PES17Model.FK_id_prov" FromRole="budaya1" ToRole="provinsi" />
+        </EntityType>
+        <Association Name="FK_id_jenis">
+          <End Type="PES17Model.Table_Jenis_Budaya" Role="Table_Jenis_Budaya" Multiplicity="0..1" />
+          <End Type="PES17Model.budaya1" Role="budaya1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Jenis_Budaya">
+              <PropertyRef Name="id_jenis_budaya" />
+            </Principal>
+            <Dependent Role="budaya1">
+              <PropertyRef Name="id_jenis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_id_prov">
+          <End Type="PES17Model.provinsi" Role="provinsi" Multiplicity="0..1" />
+          <End Type="PES17Model.budaya1" Role="budaya1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="provinsi">
+              <PropertyRef Name="id_prov" />
+            </Principal>
+            <Dependent Role="budaya1">
+              <PropertyRef Name="id_prov" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PES17ModelStoreContainer" CdmEntityContainer="PES17Entities">
+          <EntitySetMapping Name="admin1">
+            <EntityTypeMapping TypeName="PES17Model.admin1">
+              <MappingFragment StoreEntitySet="admin1">
+                <ScalarProperty Name="adminid" ColumnName="adminid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="anggota">
+            <EntityTypeMapping TypeName="PES17Model.anggota">
+              <MappingFragment StoreEntitySet="anggota">
+                <ScalarProperty Name="id_anggota" ColumnName="id_anggota" />
+                <ScalarProperty Name="nama_anggota" ColumnName="nama_anggota" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="jenis_kelamin" ColumnName="jenis_kelamin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="provinsi">
+            <EntityTypeMapping TypeName="PES17Model.provinsi">
+              <MappingFragment StoreEntitySet="provinsi">
+                <ScalarProperty Name="file_path" ColumnName="file_path" />
+                <ScalarProperty Name="id_prov" ColumnName="id_prov" />
+                <ScalarProperty Name="nama_prov" ColumnName="nama_prov" />
+                <ScalarProperty Name="ibukota_prov" ColumnName="ibukota_prov" />
+                <ScalarProperty Name="logo_prov" ColumnName="logo_prov" />
+                <ScalarProperty Name="ket" ColumnName="ket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PES17Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Jenis_Budaya">
+            <EntityTypeMapping TypeName="PES17Model.Table_Jenis_Budaya">
+              <MappingFragment StoreEntitySet="Table_Jenis_Budaya">
+                <ScalarProperty Name="nama_jenis_budaya" ColumnName="nama_jenis_budaya" />
+                <ScalarProperty Name="id_jenis_budaya" ColumnName="id_jenis_budaya" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="budaya1">
+            <EntityTypeMapping TypeName="PES17Model.budaya1">
+              <MappingFragment StoreEntitySet="budaya1">
+                <ScalarProperty Name="id_jenis" ColumnName="id_jenis" />
+                <ScalarProperty Name="id_prov" ColumnName="id_prov" />
+                <ScalarProperty Name="file_path" ColumnName="file_path" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="sumber" ColumnName="sumber" />
+                <ScalarProperty Name="ket_img" ColumnName="ket_img" />
+                <ScalarProperty Name="ket" ColumnName="ket" />
+                <ScalarProperty Name="jenis_budaya" ColumnName="jenis_budaya" />
+                <ScalarProperty Name="provinsi" ColumnName="provinsi" />
+                <ScalarProperty Name="nama_budaya" ColumnName="nama_budaya" />
+                <ScalarProperty Name="id_budaya" ColumnName="id_budaya" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

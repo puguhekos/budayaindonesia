@@ -1,0 +1,121 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DataBudaya.aspx.cs" Inherits="Admin_DataBudaya" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Ensiklopedia Budaya Indonesia</title>
+    <link rel="stylesheet" type="text/css" href="../style/style.css"/>
+    <link href="../style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <!-- Custom CSS -->
+    <link href="../style/sb-admin-2.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="../style/font-awesome.css" />
+    <link rel="shortcut icon" href="../assets/images/ico.png" type="image/x-icon"/>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'/>
+    
+    <script type="text/javascript" src ="../js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script> 
+
+</head>
+<body>
+<div id="top-info" class="container-fluid navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <div class="pull-right">
+                <a href="../Home.aspx"><img src="../assets/images/logo.png" alt=""/></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- side menu -->
+<div class="navbar-default sidebar">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+            <li>
+                <a href="Admin1.aspx"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+            </li>
+            <li>
+                <a class="active" data-toggle="collapse" href="#dropdown-lvl1"><i class="fa fa-table fa-fw"></i> Data Budaya<span class="caret arrow"></span></a>
+
+                <div id="dropdown-lvl1" class="panel-collapse collapse nav-second-level">
+                    <div class="panel-body">
+                        <ul class="nav navbar-nav">
+                            <li><a href="TabelBudaya.aspx"><i class="fa fa-table fa-fw"></i> Tambah Data</a></li>
+                            <li class="active"><a href="DataBudaya.aspx"><i class="fa fa-edit fa-fw"></i> Tabel Data</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#dropdown-lvl1a"><i class="fa fa-bar-chart-o fa-fw"></i> Data Provinsi<span class="caret arrow"></span></a>
+                <div id="dropdown-lvl1a" class="panel-collapse collapse nav-second-level">
+                    <div class="panel-body">
+                        <ul class="nav navbar-nav">
+                            <li><a href="TabelProvinsi.aspx"><i class="fa fa-table fa-fw"></i> Tambah Provinsi</a></li>
+                            <li><a href="DataProvinsi.aspx"><i class="fa fa-edit fa-fw"></i> Edit Data</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            
+            <li>
+                <a href="DataAnggota.aspx"><i class="fa fa-edit fa-fw"></i> Data Anggota</a>
+                            
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown</a>
+            </li>
+            <li>
+                <a href="../Home.aspx"><i class="fa fa-unlock fa-fw"></i> Log Out</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- end side menu -->
+
+<!-- content -->
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-md-10 budaya">
+            <h4 class="page-header"><i class="fa fa-table"></i> Data Budaya</h4>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <i class="fa fa-edit"></i> Tabel Data
+                </div>
+                <div class="panel-body tabel-budaya">
+                         <form  role="form" runat="server">
+                             <asp:GridView ID="GridBudaya" runat="server" AutoGenerateColumns="false" AllowPaging="true" OnPageIndexChanging="GridBudaya_PageIndexChanging" PageSize="3">
+                                <Columns>
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="nama_budaya" HeaderText="Nama Budaya"/>
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="provinsi" HeaderText="Provinsi" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="jenis_budaya" HeaderText="Jenis Budaya" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="ket_img" HeaderText="Keterangan Gambar" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="sumber" HeaderText="sumber" ItemStyle-CssClass="shorter" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="ket" HeaderText="Keterangan Budaya" ItemStyle-CssClass="shorter"/>
+                                    <asp:ImageField ItemStyle-Width="150px" ItemStyle-Height="100px" DataImageUrlField="file_path" HeaderText="Gambar Budaya" ItemStyle-HorizontalAlign="Center" />
+                                    
+                                </Columns>
+                            </asp:GridView>
+				        </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end content -->
+
+<div id="footer-copyright">
+    <div class="div960">
+        Copyright &copy; 2016 | Ensiklopedia Budaya Indonesia. All rights reserved.
+    </div>
+</div>
+
+</body>
+</html>

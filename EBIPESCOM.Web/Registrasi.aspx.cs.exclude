@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.OleDb;
+using System.ComponentModel;
+using System.Data.SqlClient;
+using System.Data;
+
+public partial class Registrasi : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+    protected void daftar_Click(object sender, EventArgs e)
+    {
+        SqlConnection con = new SqlConnection(
+            "Data Source=espuguh-pc\\sqlexpress;Initial Catalog=PES17;Integrated Security=True;"
+            );
+        SqlCommand cmd = new SqlCommand(
+            "insert into anggota (nama_anggota,password,email,jenis_kelamin) values ('" + nama.Text + "','" + password.Text + "','" + email.Text + "','" + jk.Text + "')", con);
+        con.Open();
+
+        cmd.ExecuteNonQuery();
+        Response.Write("Data Berhasil Disimpan");
+
+        con.Close();
+    }
+}
