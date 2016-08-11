@@ -42,8 +42,8 @@ public partial class Detail : System.Web.UI.Page
         if (item != null)
         {
             Literal LitItem = e.Item.FindControl("LitDesc") as Literal;
-            Literal LitKetImg = e.Item.FindControl("ket_img") as Literal;
-            Literal LitSumber = e.Item.FindControl("sumber") as Literal;
+            Literal LitKetImg = e.Item.FindControl("LitKetImg") as Literal;
+            Literal LitSumber = e.Item.FindControl("LitSumber") as Literal;
             DataRowView rowView = (DataRowView) e.Item.DataItem;
             LitItem.Text = rowView["ket"].ToString();
             LitKetImg.Text = rowView["ket_img"].ToString();
