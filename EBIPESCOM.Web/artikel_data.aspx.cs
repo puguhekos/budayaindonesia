@@ -22,7 +22,7 @@ public partial class artikel_data : System.Web.UI.Page
     private void BindListData()
     {
 
-        String constr = "Data Source=espuguh-pc\\sqlexpress;Initial Catalog=PES17;Integrated Security=True;";
+        String constr = "Data Source = localhost; Initial Catalog = PES17; Integrated Security = True; ";
         String strQuery = "select id_budaya, nama_budaya, provinsi, jenis_budaya, ket, ket_img, sumber, file_path from budaya1 order by id_budaya desc";
 
 

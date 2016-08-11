@@ -46,7 +46,8 @@ public partial class Detail : System.Web.UI.Page
             Literal LitSumber = e.Item.FindControl("sumber") as Literal;
             DataRowView rowView = (DataRowView) e.Item.DataItem;
             LitItem.Text = rowView["ket"].ToString();
-
+            LitKetImg.Text = rowView["ket_img"].ToString();
+            LitSumber.Text = rowView["sumber"].ToString();
         }
     }
 }
