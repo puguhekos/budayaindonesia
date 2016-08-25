@@ -40,12 +40,11 @@ public partial class Admin_DataForm : System.Web.UI.Page
     protected void update_Click(object sender, EventArgs e)
     {
         string id1 = Request.QueryString["id_budaya"];
-        
-        string strQuery = "update budaya1 set ket=@ket, ket_img=@ket_img where id=" + id1;
-        SqlCommand cmd = new SqlCommand(strQuery);
+        TextBox ketbudaya = this.FindControl("ketbudaya") as TextBox;
+        TextBox ketgambar = this.FindControl("ketgambar") as TextBox;
 
-        //cmd.Parameters.Add("@ket", ketbudaya);
-        //cmd.Parameters.Add("@ket_img", ketGambar);
+        string strQuery = String.Format(@"update budaya1 set ket={0}, ket_img={1} where id={2}", ketbudaya.Text, ketgambar.Text, id1);
+        SqlCommand cmd = new SqlCommand(strQuery);
 
         InsertUpdateData(cmd);
 
