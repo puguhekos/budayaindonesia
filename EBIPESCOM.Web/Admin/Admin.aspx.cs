@@ -24,7 +24,7 @@ public partial class Admin_Admin : System.Web.UI.Page
 
     private void bindDetailJenis()
     {
-        String constr = "Data Source=espuguh-pc\\sqlexpress;Initial Catalog=PES17;Integrated Security=True;";
+        String constr = "Data Source = localhost; Initial Catalog = PES17; Integrated Security = True; ";
         String strQuery = "select top 1 id_jenis_budaya from Table_Jenis_Budaya order by id_jenis_budaya desc";
 
 
@@ -39,7 +39,7 @@ public partial class Admin_Admin : System.Web.UI.Page
 
     private void bindDetailProv()
     {
-        String constr = "Data Source=espuguh-pc\\sqlexpress;Initial Catalog=PES17;Integrated Security=True;";
+        String constr = "Data Source = localhost; Initial Catalog = PES17; Integrated Security = True; ";
         String strQuery = "select count (*) from provinsi";
 
 
@@ -55,7 +55,7 @@ public partial class Admin_Admin : System.Web.UI.Page
     private void BindDetailData()
     {
 
-        String constr = "Data Source=espuguh-pc\\sqlexpress;Initial Catalog=PES17;Integrated Security=True;";
+        String constr = "Data Source = localhost; Initial Catalog = PES17; Integrated Security = True; ";
         String strQuery = "select top 1 id_budaya from budaya1 order by id_budaya desc";
 
 
